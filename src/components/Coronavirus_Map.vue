@@ -5,8 +5,8 @@
                     <div class="title___2d1_B"><span>截至 2020-02-05 07:04 数据统计</span></div>
                     <ul class="count___3GCdh">
                         <li>
-                            <p>较昨日<em style="color: rgb(247, 76, 49);">+3</em></p>
-                            <strong style="color: rgb(247, 76, 49);">136</strong>
+                            <p>较昨日<em style="color: rgb(247, 76, 49);">+2</em></p>
+                            <strong style="color: rgb(247, 76, 49);">138</strong>
                             <span>确诊</span></li>
                         <li>
                             <p>较昨日<em style="color: rgb(247, 130, 7);">+0</em></p>
@@ -24,7 +24,7 @@
                             <span>死亡</span>
                         </li>
                         <li>
-                            <p>较昨日<em style="color: rgb(40, 183, 163);">+5</em></p>
+                            <p>较昨日<em style="color: rgb(40, 183, 163);">+0</em></p>
                             <strong style="color: rgb(40, 183, 163);">12</strong>
                             <span>治愈</span>
                         </li>
@@ -193,9 +193,9 @@ export default{
 var CoronaVirusData = [
     {name: '昆明市', value: 41,cur:0,dead:0}, 
     {name: '西双版纳傣族自治州', value: 15,cur:1,dead:0}, 
-    {name: '玉溪市', value: 13,cur:1,dead:0}, 
+    {name: '玉溪市', value: 11,cur:1,dead:0}, 
     {name: '昭通市', value: 10,cur:1,dead:0}, 
-    {name: '曲靖市', value: 10,cur:1,dead:0}, 
+    {name: '曲靖市', value: 11,cur:1,dead:0}, 
     {name: '保山市', value: 8,cur:0,dead:0}, 
     {name: '大理白族自治州', value: 10,cur:1,dead:0}, 
     {name: '丽江市', value: 7,cur:0,dead:0}, 
@@ -207,8 +207,6 @@ var CoronaVirusData = [
     {name: '临沧市', value: 1,cur:0,dead:0},
     {name: '待确定地区', value:'',cur:1,dead:''}
 ]
-
-
 
 </script>
 <style>
