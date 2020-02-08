@@ -122,8 +122,8 @@ export default{
 
         //获取隔离小区和城市列表
         this.$axios.all([
-            this.$axios.get('/static/blockUnity.json').then(res => res.data),
-            this.$axios.get('/static/cityList.json').then(res => res.data)
+            this.$axios.get('static/blockUnity.json').then(res => res.data),
+            this.$axios.get('static/cityList.json').then(res => res.data)
 	    ]).then(this.$axios.spread((data,cityList) => {
 
             this.oragnalData=data;
@@ -370,7 +370,7 @@ var CoronaVirusData = [
         margin:0 4px;
         padding-left:20px;
         line-height:16px;
-        background:url(/static/position.svg) no-repeat;
+        background:url(../../static/position.svg) no-repeat;
         background-size:contain;
         position:relative;
     }

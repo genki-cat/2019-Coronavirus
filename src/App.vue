@@ -11,7 +11,7 @@
     </div>
     <router-view/>
     <div v-if="showTop" class="footer">
-        <img src="/static/footer.png"/>
+        <img src="static/footer.png"/>
     </div>
   </div>
 </template>
@@ -68,7 +68,7 @@ body{
     color: #fff;
     font-size: .28rem;
     text-align: center;
-    background: url(/static/kv.png) no-repeat;
+    background: url(../static/kv.png) no-repeat;
     background-size: cover;
 }
 

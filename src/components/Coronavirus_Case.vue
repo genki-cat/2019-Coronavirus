@@ -151,7 +151,7 @@ export default {
         display: inline-block;
         width: 14px;
         height: 14px;
-        background: url('/static/data_image_png.png') no-repeat;
+        background: url(../../static/data_image_png.png) no-repeat;
         background-size: cover;
     }    
     .wrapper___3xhNP .tab2___PhOZ6 .tabLeft2___SbuNE .leftLine___31ohl {

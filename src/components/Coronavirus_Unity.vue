@@ -73,8 +73,8 @@ export default{
     },
     created(){
         this.$axios.all([
-            this.$axios.get('/static/blockUnity.json').then(res => res.data),
-            this.$axios.get('/static/cityList.json').then(res => res.data)
+            this.$axios.get('static/blockUnity.json').then(res => res.data),
+            this.$axios.get('static/cityList.json').then(res => res.data)
 	    ]).then(this.$axios.spread((data,cityList) => {
 
             this.oragnalData=data;
