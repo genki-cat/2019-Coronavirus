@@ -5,8 +5,8 @@
         <div class="inner___32SGr ">
             <span @click="maintab(0,'index')" :class="{active:cur=='map'}" >疫情地图<i></i></span>
             <span @click="maintab(1,'cases')" :class="{active:cur=='case'}" >确诊病例<i></i></span>
-            <span @click="maintab(2,'news')" :class="{active:cur=='news'}" >实时信息<i></i></span>
             <span @click="maintab(3,'support')" :class="{active:cur=='support'}" >医疗防护<i></i></span>
+            <span @click="maintab(2,'news')" :class="{active:cur=='news'}" >实用工具<i></i></span>
         </div>
     </div>
     <router-view/>

@@ -51,18 +51,15 @@ export default{
         return{
             city:this.$route.query.city,
             center:this.$route.query.geo,
+            cityName:'',
             cityList:[],
             unityData:[],
             mapModel:true
         }
     },
     methods:{
-       changeCity(value){
-            this.city=value; 
-            this.unityData=this.oragnalData.filter(item=> {return item.city == this.city})[0];
-            this.center=this.cityList.filter(item=>{return item.id == this.city})[0].center; 
-            this.bmapObj.setOption(getBmapOption(this.unityData,{id:this.city,center:this.center}));
-            document.getElementById('app').scrollIntoView();
+       changeCity(e){
+          initialCityMap.call(this,{id:e}); 
        },
        showMap(){
 
@@ -81,6 +78,8 @@ export default{
             //初始化城市筛选列表
             for(var i = 0; i < data.length; i++){
                 var city=cityList.filter(item=>{ return item.id == data[i].city})[0];
+                if(city.id  == this.city)
+                    this.cityName=city.name;
                 this.cityList.push({
                     id:city.id,
                     name:city.name,
@@ -88,19 +87,35 @@ export default{
                 })
             }
 
-            this.unityData=data.filter(item=> {return item.city == this.city})[0];
-            this.showTable=true;
-            
             this.bmapObj = echarts.init(document.getElementById('Bmap'));
-            this.bmapObj.hideLoading() ;
-            this.bmapObj.setOption(getBmapOption(this.unityData,{id:this.city,center:this.center}));
-            
-            document.getElementById('app').scrollIntoView();
+
+            initialCityMap.call(this,{id:this.city,name:this.cityName,center:this.center});
 
 		})).catch(err => {
 		    console.log(err) 
 	    })
     }
+}
+
+var initialCityMap = function(city){
+    // initial city data
+    this.city=city.id; 
+    this.cityName=city.name ? city.name : this.cityList.filter(item =>{ return item.id == city.id})[0].name;
+    this.unityData=this.oragnalData.filter(item=> {return item.city == this.city})[0];
+    this.mapData=convertBmapData(this.unityData);
+    //若无center 默认为第一个unity center
+    this.center=city.center ? city.center : [this.mapData[0].value[0],this.mapData[0].value[1]]; 
+    this.bmapObj.setOption(getBmapOption(this.mapData,this.center));
+    // initial page view
+    document.getElementById('app').scrollIntoView();
+    this.$notify({
+        title: '周边疫情播报:',
+        position: 'top-right',
+        dangerouslyUseHTMLString: true,
+        offset: 100,
+        duration: 6000,
+        message:'<div style="font-size:12px;line-height:20px;"><b style="font-size:14px;">'+this.cityName+'</b>，&nbsp;共有<strong style="font-size:16px;color:red;margin:0 3px">'+this.mapData.length+'</strong>个隔离点'+'<p> 必要出行时，请注意理性避让<b style="color:purple;margin:0 2px;">隔离地点</b>并做好个人防护措施。</p>'+'</div>',
+    });
 }
 
 var convertBmapData = function(city){
@@ -124,8 +139,8 @@ var convertBmapData = function(city){
     return res;
 }
 
-var getBmapOption=function(optionData,city){
-    if(!optionData || optionData.length<1 || !city) 
+var getBmapOption=function(mapData,center){
+    if(!mapData || mapData.length<1 || !center) 
         return false;
         
     var bmapOptions={
@@ -140,7 +155,7 @@ var getBmapOption=function(optionData,city){
             } 
         },
         bmap:{
-            center:city.center,
+            center:center,
             zoom: 13,
             roam: true,
             mapStyle: {
@@ -247,7 +262,7 @@ var getBmapOption=function(optionData,city){
                 /*data:optionData.sort(function (a, b) {
                     return b.value - a.value;
                 }),*/
-                data:convertBmapData(optionData,city),
+                data:mapData,
                 symbolSize: function (val) {
                     return val[2]*10;
                 },

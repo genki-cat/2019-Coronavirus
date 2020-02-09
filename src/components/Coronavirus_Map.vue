@@ -5,27 +5,27 @@
                     <div class="title___2d1_B"><span>截至 2020-02-05 07:04 数据统计</span></div>
                     <ul class="count___3GCdh">
                         <li>
-                            <p>较昨日<em style="color: rgb(247, 76, 49);">+2</em></p>
-                            <strong style="color: rgb(247, 76, 49);">138</strong>
+                            <p>较昨日<em style="color: rgb(247, 76, 49);">+{{CoronaVirusDataSum.total.new}}</em></p>
+                            <strong style="color: rgb(247, 76, 49);">{{CoronaVirusDataSum.total.value}}</strong>
                             <span>确诊</span></li>
                         <li>
-                            <p>较昨日<em style="color: rgb(247, 130, 7);">+0</em></p>
-                            <strong style="color: rgb(247, 130, 7);">225</strong>
+                            <p>较昨日<em style="color: rgb(247, 130, 7);">+{{CoronaVirusDataSum.like.new}}</em></p>
+                            <strong style="color: rgb(247, 130, 7);">{{CoronaVirusDataSum.like.value}}</strong>
                             <span>疑似</span>
                         </li>
                         <li>
-                            <p>较昨日<em style="color: rgb(162, 90, 78);">+2</em></p>
-                            <strong style="color: rgb(162, 90, 78);">18</strong>
+                            <p>较昨日<em style="color: rgb(162, 90, 78);">{{CoronaVirusDataSum.bad.new}}</em></p>
+                            <strong style="color: rgb(162, 90, 78);">{{CoronaVirusDataSum.bad.value}}</strong>
                             <span>重症</span>
                         </li>
                         <li>
-                            <p>较昨日<em style="color: rgb(93, 112, 146);">+0</em></p>
-                            <strong style="color: rgb(93, 112, 146);">0</strong>
+                            <p>较昨日<em style="color: rgb(93, 112, 146);">+{{CoronaVirusDataSum.dead.new}}</em></p>
+                            <strong style="color: rgb(93, 112, 146);">{{CoronaVirusDataSum.dead.value}}</strong>
                             <span>死亡</span>
                         </li>
                         <li>
-                            <p>较昨日<em style="color: rgb(40, 183, 163);">+0</em></p>
-                            <strong style="color: rgb(40, 183, 163);">12</strong>
+                            <p>较昨日<em style="color: rgb(40, 183, 163);">+{{CoronaVirusDataSum.cur.new}}</em></p>
+                            <strong style="color: rgb(40, 183, 163);">{{CoronaVirusDataSum.cur.value}}</strong>
                             <span>治愈</span>
                         </li>
                     </ul>
@@ -100,6 +100,7 @@ export default{
             unityData:[],
             oragnalData:[],
             CoronaVirusData:[],
+            CoronaVirusDataSum:{total:{new:0,value:0},like:{new:0,value:0},bad:{new:0,value:0},dead:{new:0,value:0},cur:{new:0,value:0}},
             scroll:this.$route.query.scroll
         }
     },
@@ -122,12 +123,12 @@ export default{
 
         //获取隔离小区和城市列表
         this.$axios.all([
+            this.$axios.get('static/CoronaVirusData.json').then(res => res.data),
             this.$axios.get('static/blockUnity.json').then(res => res.data),
             this.$axios.get('static/cityList.json').then(res => res.data)
-	    ]).then(this.$axios.spread((data,cityList) => {
-
-            this.oragnalData=data;
-
+	    ]).then(this.$axios.spread((virusData,unityData,cityList) => {
+            this.CoronaVirusDataSum=virusData.sum;
+            this.CoronaVirusData=virusData.list;
             // 省疫情分布地图
             echarts.registerMap('Yunnan',yunnan);
             this.pmapObj = echarts.init(document.getElementById('mapBody'));
@@ -162,22 +163,18 @@ export default{
                     data: CoronaVirusData
                 }]
             });
-
-           this.CoronaVirusData=CoronaVirusData;
-
-           //初始化城市筛选列表
-            for(var i = 0; i < data.length; i++){
-                var city=cityList.filter(item=>{ return item.id == data[i].city})[0];
+           
+           //初始化城市筛选列表 & 疫情小区
+            this.oragnalData=unityData;
+            for(var i = 0; i < unityData.length; i++){
+                var city=cityList.filter(item=>{ return item.id == unityData[i].city})[0];
                 this.cityList.push({
                     id:city.id,
                     name:city.name,
                     center:city.center
                 })
             }
-
-            this.unityData=data.filter(item=> {return item.city == this.city})[0];
-            //if(this.scroll && this.scroll!='')
-                //document.getElementById(this.scroll).scrollIntoView();
+            this.unityData=unityData.filter(item=> {return item.city == this.city})[0];
 
            
 		})).catch(err => {
@@ -191,21 +188,21 @@ export default{
 }
 
 var CoronaVirusData = [
-    {name: '昆明市', value: 41,cur:0,dead:0}, 
-    {name: '西双版纳傣族自治州', value: 15,cur:1,dead:0}, 
-    {name: '玉溪市', value: 11,cur:1,dead:0}, 
-    {name: '昭通市', value: 10,cur:1,dead:0}, 
+    {name: '昆明市', value: 41,cur:2,dead:0}, 
+    {name: '西双版纳傣族自治州', value: 15,cur:2,dead:0}, 
+    {name: '玉溪市', value: 14,cur:2,dead:0}, 
+    {name: '昭通市', value: 12,cur:1,dead:0}, 
     {name: '曲靖市', value: 11,cur:1,dead:0}, 
-    {name: '保山市', value: 8,cur:0,dead:0}, 
-    {name: '大理白族自治州', value: 10,cur:1,dead:0}, 
-    {name: '丽江市', value: 7,cur:0,dead:0}, 
-    {name: '红河哈尼族彝族自治州', value: 5,cur:1,dead:0}, 
+    {name: '保山市', value: 9,cur:0,dead:0}, 
+    {name: '大理白族自治州', value: 10,cur:2,dead:0}, 
+    {name: '丽江市', value: 7,cur:1,dead:0}, 
+    {name: '红河哈尼族彝族自治州', value: 5,cur:2,dead:0}, 
     {name: '德宏傣族景颇族自治州', value: 5,cur:0,dead:0}, 
     {name: '普洱市', value: 4,cur:0,dead:0}, 
     {name: '楚雄彝族自治州', value: 4,cur:0,dead:0}, 
     {name: '文山壮族苗族自治州', value: 1,cur:0,dead:0}, 
     {name: '临沧市', value: 1,cur:0,dead:0},
-    {name: '待确定地区', value:'',cur:1,dead:''}
+    {name: '待确定地区', value:'',cur:5,dead:''}
 ]
 
 </script>

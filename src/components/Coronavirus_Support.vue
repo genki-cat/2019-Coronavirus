@@ -1,6 +1,17 @@
 <template>
+    <div>
+    <div class="container">
+        <p class="mapTap___1k3MH"><i></i>在线发热门诊</p>
+        <div class="longList__vYMG5adjr">
+            <div>
+                <img src="https://palmap-bucket-his.oss-cn-hangzhou.aliyuncs.com/medical_inquiry/logo/1393_logo.jpg" class="logo_3FlsiLPy2Q">
+                <div class="left_pS2f7mJZJy"><span>昆明市第一人民医院</span><span></span> </div>
+                <a class="right_36MsAH1FNj" href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxae82f0b1efd10953&redirect_uri=https%3A%2F%2Fweixinauth.yihu.com%2F%3Fm%3Dwxauth%26c%3Dwxauth%26tourl%3Dhttps%253A%252F%252Fask.yihu.com%252FYqAsk%252FAsk%252Findex.shtml%253FplatformType%253D9000921%2526clientid%253D9000921%2526hosId%253D1091820%2526deptId%253D7207020%2526hideOtherDept%253D1%2526btnName%253D%2525E5%25258F%252591%2525E7%252583%2525AD%2525E9%252597%2525A8%2525E8%2525AF%25258A%2525E5%252592%2525A8%2525E8%2525AF%2525A2%2525E5%252585%2525A5%2525E5%25258F%2525A3%2526isTitleBr%253D1%2526hideDefaultDept%253D1%2526time%253D1581001165%2526_channel_id%253D9000921&response_type=code&scope=snsapi_base&state=1&component_appid=wxc881add719da1d6a&connect_redirect=1#wechat_redirect"><div><span class="colorSpan_3PE9tqAX5R"></span><span>问医生</span></div></a>
+            </div>
+        </div>
+    </div>
     <div class= "container">
-        <p class="mapTap___1k3MH"><i></i>定点发热门诊查询</p>
+        <p class="mapTap___1k3MH"><i></i>线下发热门诊</p>
         <div class="hotelItemWrap current" province="云南">
         <div class="hotelCity">
           <div class="name">昆明</div>
@@ -67,6 +78,7 @@
           <div class="count">4家<span>进入查询</span></div>
           <a class="healthlink" href="https://feiyan.wecity.qq.com/wuhan/dist/index.html#/feiyanmap?partnerType=4&amp;cityCode=533400&amp;cityName=迪庆&amp;lat=0&amp;lng=0&amp;channel=AAEEviDRbllNrToqonqBmrER"></a>
         </div></div>
+    </div>
     </div>
 </template>
 <script>
@@ -149,5 +161,79 @@ export default {
         width: 100%;
         height: 35px;
         left:0;
+    }
+
+    .longList__vYMG5adjr {
+        padding: 0 15px;
+        background: #fff;
+    }
+
+    .longList__vYMG5adjr>div:last-of-type {
+        border: none;
+    }
+    .longList__vYMG5adjr>div {
+        min-height: 63px;
+        padding: 5px 11px;
+        border-bottom: 1px solid #f1f1f1;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .longList__vYMG5adjr .logo_3FlsiLPy2Q {
+        width: 38px;
+        height: 38px;
+        margin-right: 15px;
+    }
+    .longList__vYMG5adjr .left_pS2f7mJZJy {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        max-width: 60%;
+        margin-right: auto;
+    }
+    .longList__vYMG5adjr .left_pS2f7mJZJy>span:first-child {
+        color: #000;
+        font-size: 17px;
+        line-height:38px
+    }
+    .longList__vYMG5adjr .left_pS2f7mJZJy span {
+        font-size: 9px;
+        padding: 1px 6px;
+    }
+    .longList__vYMG5adjr .left_pS2f7mJZJy>span:nth-child(2) {
+        color: #a1a1a1;
+        font-size: 13px;
+        margin-top: 4px;
+    }
+    .longList__vYMG5adjr .right_36MsAH1FNj {
+        width: 66px;
+        height: 26px;
+        text-decoration: none;        
+    }
+    .longList__vYMG5adjr .right_36MsAH1FNj>div {
+        width: 100%;
+        height: 100%;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        border: .01rem solid #3dadf2;
+        color: #3dadf2;
+        border-radius: 18px;
+        font-size: 12px;
+    }
+    .longList__vYMG5adjr .colorSpan_3PE9tqAX5R {
+        width: 5px;
+        height: 5px;
+        background: #1dd661;
+        border-radius: 100%;
+        margin-right: 3px;
     }
 </style>
