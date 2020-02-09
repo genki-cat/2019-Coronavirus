@@ -3,7 +3,7 @@ import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import CMap from '@/components/Coronavirus_Map'
 import CCase from '@/components/Coronavirus_Case'
-import CNews from '@/components/Coronavirus_News'
+import CApps from '@/components/Coronavirus_Apps'
 import CSpupport from '@/components/Coronavirus_Support'
 import CUnity from '@/components/Coronavirus_Unity'
 
@@ -27,9 +27,9 @@ export default new Router({
         component:CCase
     },
     {
-        path:'/news',
+        path:'/apps',
         name:'CoronavirusNews',
-        component:CNews
+        component:CApps
     },
     {
         path:'/support',

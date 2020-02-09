@@ -151,7 +151,7 @@ var getBmapOption=function(mapData,center){
         tooltip : {
             trigger: 'item',
             formatter: function(data) {
-                return data.name+' '+data.value[2]+' 例';
+                return data.name+' ：共有 '+data.value[2]+' 例患者';
             } 
         },
         bmap:{

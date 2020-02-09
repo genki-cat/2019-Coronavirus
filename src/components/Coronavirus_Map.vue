@@ -2,7 +2,7 @@
     <div class= "c_map">
         <div class="mapTop___2VZCl container">
             <div class="statistics___1cFUQ">
-                    <div class="title___2d1_B"><span>截至 2020-02-05 07:04 数据统计</span></div>
+                    <div class="title___2d1_B"><span>截至 {{updateDate}} 数据统计</span></div>
                     <ul class="count___3GCdh">
                         <li>
                             <p>较昨日<em style="color: rgb(247, 76, 49);">+{{CoronaVirusDataSum.total.new}}</em></p>
@@ -95,13 +95,13 @@ export default{
             userId:666,
 　　　　    token:'',
             city:'1',
+            updateDate:new Date().getFullYear() +'-'+ (new Date().getMonth()+1)+'-'+new Date().getDate()+' '+ new Date().getHours()+':00',
             center:[102.715615,25.048101],
             cityList:[],
             unityData:[],
             oragnalData:[],
             CoronaVirusData:[],
-            CoronaVirusDataSum:{total:{new:0,value:0},like:{new:0,value:0},bad:{new:0,value:0},dead:{new:0,value:0},cur:{new:0,value:0}},
-            scroll:this.$route.query.scroll
+            CoronaVirusDataSum:{total:{new:0,value:0},like:{new:0,value:0},bad:{new:0,value:0},dead:{new:0,value:0},cur:{new:0,value:0}}
         }
     },
     methods:{

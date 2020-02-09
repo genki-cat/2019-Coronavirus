@@ -23,7 +23,7 @@ var appList=[
 export default {
     name: 'App',
     data(){
-        this.$parent.cur='news';
+        this.$parent.cur='apps';
         return {list:appList} 
     },
     methods:{
