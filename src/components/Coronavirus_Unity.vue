@@ -91,6 +91,10 @@ export default{
 
             initialCityMap.call(this,{id:this.city,name:this.cityName,center:this.center});
 
+            var bmap = this.bmapObj.getModel().getComponent('bmap').getBMap();
+                var opts = {offset: new BMap.Size(10, 200)};
+                bmap.addControl(new BMap.NavigationControl(opts));
+
 		})).catch(err => {
 		    console.log(err) 
 	    })
@@ -341,3 +345,4 @@ var getBmapOption=function(mapData,center){
     }
 </style>
 
+            var opts = {offset: new BMap.Size(150, 5)}    
