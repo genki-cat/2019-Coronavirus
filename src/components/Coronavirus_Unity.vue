@@ -65,7 +65,7 @@ export default{
 
        },
        back(){
-           this.$router.push({path:'/index',query:{scroll:'unity'}});
+           this.$router.push({path:'/index'});
        }
     },
     created(){

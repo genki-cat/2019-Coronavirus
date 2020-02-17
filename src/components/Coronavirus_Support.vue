@@ -12,6 +12,19 @@
             </div>
         </div>
     </div>
+
+     <div class="container">
+        <div class="longList__vYMG5adjr">
+            <div>
+                <a href="https://feiyan.wecity.qq.com/wuhan/dist/selftest.html#/selftest?from=lung&channel=AAEEviDRbllNrToqonqBmrER&_scope=snsapi_base&partnerType=4&cityCode=110000&cityName=%E5%8C%97%E4%BA%AC&lat=0&lng=0&nav_color=5391FF&front_color=ffffff">
+                    <img src="../../static/autocheck.png" class="logo_3FlsiLPy2Q" style="border-radius:50%"/>
+                    <div class="left_pS2f7mJZJy"><span style="color:#a32f30;">发热助手（智能自查）</span><span></span> </div>
+                    <div class="right_36MsAH1FNj"><div style="border-color:#ce8e92;"><span style="color:#b55658">开始评估</span></div></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class= "container">
         <p class="mapTap___1k3MH"><i></i>线下发热门诊</p>
         <div class="hotelItemWrap current" province="云南">

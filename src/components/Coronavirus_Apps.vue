@@ -15,9 +15,10 @@
 <script>
 var appList=[
     {name:'患者同程查询',icon:'static/icon_train.png',description:'新型肺炎患者同程航班/列车查询，返工必备神器！多走点心，兄嘚~',link:'https://h5.133.cn/gtgjwap/h5/virusTrip/home?use_type=h5&from=singlemessage&isappinstalled=0'},
+    {name:'出入境管控查询',icon:'static/icon_traval.png',description:'出入境管控信息一键查询，口岸通行，各国管控政策，出门在外关注一下',link:'https://www.nia.gov.cn/n794014/n1050176/n1077211/n1215569/index.html?from=timeline&isappinstalled=0'},
+    {name:'珍茗金龙水',icon:'static/icon_zhenming.png',description:'云南人都知道的，在线预订了解一下',link:'http://weixin.gemmy.com.cn/wx/Index/Index?actiontype=1&Random=2&from=singlemessage&isappinstalled=0'},
     {name:'美团外卖',icon:'static/icon_meituan.png',description:'不能出门的日子里，饭还是要吃好的~ 当然，除了饭也可以关注下口罩和医药',link:'https://h5.waimai.meituan.com/waimai/mindex/home'},
-       {name:'珍茗金龙水',icon:'static/icon_zhenming.png',description:'云南人都知道的，在线预订了解一下',link:'http://weixin.gemmy.com.cn/wx/Index/Index?actiontype=1&Random=2&from=singlemessage&isappinstalled=0'},
-       {name:'达达快送',icon:'static/icon_dada.png',description:'不能当面给，快递又太慢？有时候还是需要同程快速送下东西',link:'https://kuai.imdada.cn/toc/corp/index_v2#/home'}
+    {name:'达达快送',icon:'static/icon_dada.png',description:'不能当面给，快递又太慢？有时候还是需要同程快速送下东西',link:'https://kuai.imdada.cn/toc/corp/index_v2#/home'}
 ];
 
 export default {
